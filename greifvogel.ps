@@ -1,0 +1,136 @@
+#! /usr/bin/perl
+
+use strict;
+
+# Schalter einbauen für Flug / Sitz
+
+(my $critfile, my $datafile, my $switch) = @ARGV;       # put first parameter into switch
+chomp ($critfile);
+chomp ($datafile);
+chomp ($switch);
+
+# start main processing of program
+
+my %kriterien;              # stores list of criteria for birds
+my %greife;                 # stores footprint and name of birds
+
+my $match = "";             # stores matching result of eigenschaft and beobachtung                                           
+my $deviation ="";          # stores non matching results (XOR) of eigenschaften and beobachtung                              
+my $beobachtung = "";       # concatenates the teilbeobachtungen
+my $observation;
+
+if ($switch eq "-h") {   # show help text
+  BirdHelp()
+}else{                   # else run bird programm
+  ReadBirdData();  
+  BirdInput();
+  BirdOutput();
+};
+
+# sub routines
+
+sub BirdHelp{
+
+    print "\ngreifvogel.ps crit-filename data-filename [-[vh]]]\n";
+    print "provide pattern to answer 1 for tue observation and 0 for not observed for each provided option\n";
+    print "example : 0100 equals to second option observed, 1,3,4 not observed\n";
+    print "the program provides a list off all datalines which fullfill the criteria (1)\n\n";
+    print "-v\- verbose mode shows all additional characteristics of a bird\n";
+    print "-h\- help shows this help text\n";
+}
+
+sub ReadBirdData{
+
+    open my $in, '<', $critfile or die $!;
+    while (my $line = <$in>) {
+	chomp $line;
+	my ($id, $name) = split/\,+/, $line;
+	$kriterien{$id} = $name;
+    }
+    close $in;
+
+    open my $in, '<', $datafile or die $!;
+    while (my $line = <$in>) {
+        chomp $line;
+        my ($id, $name) = split/\,+/, $line;
+        $greife{$id} = $name;
+    }
+    close $in;
+}
+
+sub BirdInput{
+
+  my $teilbeobachtung = "";   # stores stdin for each sektor of beobachtungen
+
+# gather all relevant data of spotted bird, every criterium is given as an bit based code 0=notobserved 1=observed
+# which is concatenated and works as a pattern to be checked against
+
+  print "Schwanzform (rund, gabel, gerade): ";
+  $teilbeobachtung = <STDIN>;
+  chomp ($teilbeobachtung);
+  if ($teilbeobachtung !~ /\b[0-1]{3}\b/) {$teilbeobachtung = "000"}; # only except correct input otherwise set to 000
+  $beobachtung = $beobachtung . $teilbeobachtung;
+
+  print "Flügel (gefingert, schmal, gebändert, mit hellen Feldern): ";
+  $teilbeobachtung = <STDIN>;
+  chomp ($teilbeobachtung);
+  if ($teilbeobachtung !~ /\b[0-1]{4}\b/) {$teilbeobachtung = "0000"};
+  $beobachtung = $beobachtung . $teilbeobachtung;
+
+  print "Grösse (riesig(<220), gross(<180), mittel(<120), klein (<80)): ";
+  $teilbeobachtung = <STDIN>;
+  chomp ($teilbeobachtung);
+  if ($teilbeobachtung !~ /\b[0-1]{4}\b/) {$teilbeobachtung = "0000"};
+  $beobachtung = $beobachtung . $teilbeobachtung;
+
+  print "Habitat (Küste, Wald Wiese, Gebirge, Siedlung): ";
+  $teilbeobachtung = <STDIN>;
+  chomp ($teilbeobachtung);
+  if ($teilbeobachtung !~ /\b[0-1]{3}\b/) {$teilbeobachtung = "0000"};
+  $beobachtung = $beobachtung . $teilbeobachtung;
+
+  print "Jahreszeit (Sommer, Winter): ";
+  $teilbeobachtung = <STDIN>;
+  chomp ($teilbeobachtung);
+  if ($teilbeobachtung !~ /\b[0-1]{2}\b/) {$teilbeobachtung = "00"};
+  $beobachtung = $beobachtung . $teilbeobachtung;
+
+  print "Flug (kreist, rüttelt, Luftjagd, ruft): ";
+  $teilbeobachtung = <STDIN>;
+  chomp ($teilbeobachtung);
+  if ($teilbeobachtung !~ /\b[0-1]{3}\b/) {$teilbeobachtung = "0000"};
+  $beobachtung = $beobachtung . $teilbeobachtung;
+
+  $beobachtung = "0b" . reverse $beobachtung;   # reverse binary number to match format and add 0b
+  $observation = oct($beobachtung);      # convert binary string into decimal number to compare with eigenschaft
+}
+
+sub BirdOutput {
+
+# list all birds with the respective pattern
+
+  print "Vögel, die die genannten Beobachtungen erfüllen: \n\n";
+
+  foreach my $hash(keys %greife)                # compare all birds in greife list
+  {
+      $match = $hash & $observation;         # create match of observation and hash using AND
+      $deviation = $hash ^ $observation;     # create deviation of observation and hash by using XOR
+
+      if ($match eq $observation)            # true if all observations are within hash
+      {
+	  print ": $greife{$hash} : möglicher Vogel\n";
+	  if ($switch eq "-v")                # print other characteristics only in verbose mode
+	  {
+	      foreach my $code(keys %kriterien)     # compare all criterias in kriterien list
+	      {
+		  my $currentdev = $deviation & $code;
+  		  if ($currentdev eq $code)       # true if not observed is equal to code of kriterien
+	  	  {
+		      print "$kriterien{$code} - ";
+		  };
+	      };
+	      print "zusätzliche Eigenschaften\n\n";
+	  };
+      };
+  };
+};

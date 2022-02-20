@@ -1,0 +1,21 @@
+1,Schwanz rund
+2,Schwanz Gabel
+4,Schwanz eckig
+8,Fluegel gefingert
+16,Fluegel schmal
+32,Fluegel gebaendert
+64,Fluegel hat helle Felder
+128,riesig (180-220)
+256,gross (120-180)
+512,mittel(80-120)
+1024,klein (60-80)
+2048,Kueste
+4096,Wald-Wiese
+8192,Gebirge
+16384,Siedlung
+32768,Sommer
+65536,Winter
+131072,kreist
+262144,ruettelt
+524288,Luftjagd
+1048576,ruft

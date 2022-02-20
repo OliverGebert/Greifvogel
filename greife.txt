@@ -1,0 +1,15 @@
+119769,Steinadler
+113561,Seeadler
+1451097,Maeusebussard
+1098809,Wespenbussard
+1401945,Rauhfussbussard
+123994,Rotmilan
+74779,Schwarzmilan
+648284,Rohrweihe
+116093,Kornweihe
+50493,Wiesenweihe
+4609,Habicht
+381973,Turmfalke
+569877,Baumfalke
+635413,Wanderfalke
+1044,Sperber
