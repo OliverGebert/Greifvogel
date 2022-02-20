@@ -73,6 +73,6 @@ if you want to see additional options, which would also fit to the observation, 
 
 During the questions, the user has to answer with 0/1 patterns. He has to provide one digit for each provided option (1-true). If the pattern does not match, a 0 pattern is applied, which results in all options.
 
-## Version infomration
+## Version information
 
 > works with: perl 5, version 18
