@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="zmt1kxRwn9HOsEFkp4JX" name="Page-1">
-        <mxGraphModel dx="1077" dy="814" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#404040" math="0" shadow="0">
+        <mxGraphModel dx="592" dy="814" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#919191" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,7 +13,7 @@
                 <mxCell id="4" value="Schwanz rund 001" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="3" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Schwanz gabel 002" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=#3D3D3D;" parent="3" vertex="1">
+                <mxCell id="5" value="Schwanz gabel 002" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" parent="3" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="Schwanz eckig 004" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="3" vertex="1">
@@ -46,7 +46,7 @@
                 <mxCell id="14" value="Habicht, Schwanz eckig" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="11" vertex="1">
                     <mxGeometry y="90" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="generate hash values for greife.txt" style="curved=1;endArrow=classic;html=1;exitX=1.007;exitY=1.1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="12" target="7" edge="1">
+                <mxCell id="17" value="generate hash values for greife.txt" style="curved=1;endArrow=classic;html=1;exitX=1.007;exitY=1.1;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=none;" parent="1" source="12" target="7" edge="1">
                     <mxGeometry x="0.0837" y="20" width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="380" y="310" as="sourcePoint"/>
                         <mxPoint x="541" y="330" as="targetPoint"/>
@@ -57,7 +57,7 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="19" value="define attribute values for individual hashs" style="curved=1;endArrow=classic;html=1;exitX=1.021;exitY=0.158;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.014;entryY=0.117;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3" target="11" edge="1">
+                <mxCell id="19" value="define attribute values for individual hashs" style="curved=1;endArrow=classic;html=1;exitX=1.021;exitY=0.158;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.014;entryY=0.117;entryDx=0;entryDy=0;entryPerimeter=0;labelBackgroundColor=none;" parent="1" source="3" target="11" edge="1">
                     <mxGeometry x="0.165" y="51" width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="380" y="310" as="sourcePoint"/>
                         <mxPoint x="430" y="260" as="targetPoint"/>
