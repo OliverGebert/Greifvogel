@@ -2,11 +2,23 @@
 
 Perl script with command line interface to select the right raptor baswed on observations in nature
 
-## Target
+## Introduction & Target
+
+> Short description of the requirements, driving forces, abstract of requirements. Top three (max five) quality goals for the architecture which have highest priority for the major stakeholders. A table of important stakeholders with their expectation regarding architecture.
 
 The target of the Perl script is to help identify a spotted raptor and get all relevant options in Germany. The basic idea of the algorithm is to define a unique hash value based on power of 2 to every possible  observation. Each raptor then gets a unique hash value which is the binary added hash values of all observations that would fit to his type. During comparison not observed criteria result positive for all raptors.
 
-## High Level Architecture
+## Context & Scope
+
+> Delimits your system from its (external) communication partners (neighboring systems and users). Specifies the external interfaces. Shown from a business/domain perspective (always) or a technical perspective (optional)
+
+## Solution Strategy
+
+> Summary of the fundamental decisions and solution strategies that shape the architecture. Can include technology, top-level decomposition, approaches to achieve top quality goals and relevant organizational decisions.
+
+## Building Block View
+
+> Static decomposition of the system, abstractions of source-code, shown as hierarchy of white boxes (containing black boxes), up to the appropriate level of detail.
 
 ### Component View
 
@@ -59,6 +71,18 @@ The perl script runs on two different .txt files which contain comma seperated v
 | 569877 | Baumfalke |
 | 635413 | Wanderfalke |
 | 1044 | Sperber |
+
+## Cross Cutting comcepts
+
+> Overall, principal regulations and solution approaches relevant in multiple parts (→ cross-cutting) of the system. Concepts are often related to multiple building blocks. Include different topics like domain models, architecture patterns and -styles, rules for using specific technology and implementation rules.
+
+## Architectural Decisions
+
+> Important, expensive, critical, large scale or risky architecture decisions including rationales.
+
+## Risks & Technical Debts
+
+> Known technical risks or technical debt. What potential problems exist within or around the system? What does the development team feel miserable about?
 
 ## Execute
 
