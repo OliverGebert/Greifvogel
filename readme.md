@@ -6,6 +6,14 @@ Perl script with command line interface to select the right raptor baswed on obs
 
 The target of the Perl script is to help identify a spotted raptor and get all relevant options in Germany. The basic idea of the algorithm is to define a unique hash value based on power of 2 to every possible  observation. Each raptor then gets a unique hash value which is the binary added hash values of all observations that would fit to his type. During comparison not observed criteria result positive for all raptors.
 
+## High Level Architecture
+
+### Component View
+
+The perl script runs on two different .txt files which contain comma seperated values. The following daigram shows a draft overview how the scrip is connected to the files. The greife.txt file needs to be generated manually upfront to how the matching patterns available.
+
+![Component View](./Greifvogel.png)
+
 ### List of criteria and hash values
 
 | Hash | Criteria |
